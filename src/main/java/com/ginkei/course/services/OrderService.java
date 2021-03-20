@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ginkei.course.entities.Order;
-import com.ginkei.course.entities.User;
 import com.ginkei.course.repositories.OrderRepository;
 
 @Service
