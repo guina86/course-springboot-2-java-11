@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.ginkei.course.entities.Category;
 import com.ginkei.course.entities.Order;
 import com.ginkei.course.entities.OrderItem;
+import com.ginkei.course.entities.Payment;
 import com.ginkei.course.entities.Product;
 import com.ginkei.course.entities.User;
 import com.ginkei.course.entities.enums.OrderStatus;
@@ -62,6 +63,9 @@ public class TestConfig implements CommandLineRunner {
 		var o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), OrderStatus.PAID, u1);
 		var o2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"), OrderStatus.WAITING_PAYMENT, u2);
 		var o3 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), OrderStatus.WAITING_PAYMENT, u1);
+		
+		var pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+		o1.setPayment(pay1);
 
 		var oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
 		var oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
