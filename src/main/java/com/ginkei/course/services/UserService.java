@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ginkei.course.entities.User;
 import com.ginkei.course.repositories.UserRepository;
+import com.ginkei.course.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService {
@@ -20,7 +21,7 @@ public class UserService {
 	
 	public User findById(Long id) {
 		var optionalUser = repository.findById(id);
-		return optionalUser.get();
+		return optionalUser.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public User insert(User obj) {
